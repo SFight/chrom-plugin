@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- 引入招财的登录样式 -->
+  <link rel="stylesheet" href="./style/zhaocai.css">
+  <!-- 引入bootstrap依赖的jquery -->
+  <!-- <script src="./lib/jquery-3.4.1-dist/jquery.min.js"></script> -->
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <!-- <link rel="stylesheet" href="./lib/bootstrap-3.3.7-dist/css/bootstrap.min.css"> -->
+
+  <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+  <!-- <link rel="stylesheet" href="./lib/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css"> -->
+
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <!-- <script src="./lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script> -->
+
+  <!-- 引入excel处理的js -->
+  <script src="./lib/xlsx.core.min.js"></script>
+  <!-- 引入axios进行网络访问 -->
+  <script src="./lib/axios-0.19.2-dist/axios.min.js"></script>
+  <!-- 引入HTML转换到MarkDown -->
+  <script src="./lib/html2markdown/markdown_dom_parser.js"></script>
+  <script src="./lib/html2markdown/html2markdown.js"></script>
+</head>
+<body style="width: 500px;">
+  
+  <script type="module" src="./data.js"></script>
+  <script type="module" src="./menu.js"></script>
+
+  <div class="form" style="width: 450px;">
+    <input type="date" id="start" style="line-height: 30px; height: 30px !important; font-size: 14px; width:200px;"/>
+    <input type="date" id="end" style="line-height: 30px; height: 30px !important; font-size: 14px; width:200px; margin-left: 10px;"/>
+    <button id="xueqiu" style="height: 44px; width: 100%; color: #fff; background-color: #3082fc; margin-top: 10px;">获取分析数据（头条、雪球、招财、知乎）</button>
+  </div>
+ 
+  <!-- 招财登录界面 -->
+  <div id="form-wrapper">
+    <h1>招财登录</h1>
+    <!-- 招财登录 -->
+    <div class="form-control captcha">
+      <div class="refresh" id="zc_refresh_imgcode">
+        <img src="img/refresh.png">
+        <span class="text">换一张</span>
+      </div>
+      <img id="zc_imgcode" src="" class="captcha-img">
+      <!----> <!----> 
+      <div class="input-wrapper">
+        <div class="basic-input">
+          <input id="zc_imgcode_text" type="text" placeholder="请输入验证码" name="" maxlength="4" autocomplete="off" style="padding-left: 16px; padding-right: 16px;">
+        </div>
+      </div>
+      <!---->
+    </div>
+    <button id="zc_login" data-v-31242166 class="my-button submit-btn medium primary">
+      <!----> 
+      <span >确认登录</span>
+    </button>
+  </div>
+</body>
+</html>

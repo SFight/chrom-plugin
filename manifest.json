@@ -1,0 +1,47 @@
+{
+	"name": "微信运营插件",
+	"description": "微信批量开转载权限、头条、雪球、招财、知乎分析数据下载，雪球、招财文章同步",
+	"version": "1.2.0",
+	"manifest_version": 2,
+	"browser_action": {
+		"default_icon": "img/icon.png",
+		"default_popup": "menu.html"
+	},
+	"content_scripts": [
+		{
+			"matches": [ 
+				"https://mp.weixin.qq.com/cgi-bin/appmsgcopyright*", "https://mp.weixin.qq.com/s?__biz*",
+				"https://mp.weixin.qq.com/misc/useranalysis?1=1*", // 用户增长界面
+				"https://mp.weixin.qq.com/misc/useranalysis?action=attr*", // 用户属性
+				"https://mp.weixin.qq.com/misc/useranalysis?action=activity_analysis_page&attr_type=4*", // 常读用户分析
+				"https://editor.csdn.net/*", // csdn草稿页面
+				"https://www.jianshu.com/writer*", // 简书界面
+				"https://baijiahao.baidu.com/*", // 百家号
+				"https://www.youtube.com/*" // YouTube
+			 ],
+			"js": [ 
+				"main.js", "wechat-article2markdown.js", "user-analysis.js",
+				"lib/html2markdown/html2markdown.js", "lib/html2markdown/markdown_dom_parser.js",
+				"lib/axios-0.19.2-dist/axios.min.js", "lib/marked-0.8.2/lib/marked.js",
+				"lib/FileSaver.js-2.0.2/dist/FileSaver.js", "lib/xlsx.core.min.js", "csdn.js", "jianshu.js",
+				"baijiahao.js", "youtube.js"
+			 ]
+		}
+	],
+	"background": {
+    "scripts": ["message.js"],
+    "persistent": false
+	},
+	"externally_connectable": {
+		"matches": ["*://*.weixin.qq.com/*", "*://*.youtube.com/*"]
+	},
+	"permissions": [
+		"notifications", // 增加通知权限
+		"storage", // 存储权限
+		"https://mp.xueqiu.com/", // 开放对雪球的访问
+		"https://mp.toutiao.com/", // 开放对头条号的访问
+		"https://pgcweb.cs.cmbchina.com/", // 开放对招财号的访问
+		"https://www.zhihu.com/", // 开放对知乎的访问
+		"https://www.youtube.com/" // YouTube
+	]
+}
