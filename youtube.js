@@ -2,7 +2,7 @@
 
   const regex = /https:\/\/www.youtube.com\/.*/;
   if (regex.test(window.location.href)) {
-    subtitle(); // 添加字幕导出按钮
+    // subtitle(); // 添加字幕导出按钮
   }
 
   function subtitle() {

@@ -172,7 +172,7 @@ async function getImageCode() {
  */
 async function login(id, code) {
 	const username = "13910190713";
-	const password = "jcytoday001";
+	const password = "t52h/Y0+/qitopHACqJGyw=="; // "jcytoday001";
 	const random = Math.random();
 	const url = "https://pgcweb.cs.cmbchina.com/api/auth/token?randNo=" + random;
 	const data = { id, code, username, password };
