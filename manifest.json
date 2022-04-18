@@ -10,5 +10,15 @@
     "default_title": "My Bookmarks",
     "default_icon": "icons/icon.png",
     "default_popup": "pages/scrapy.html"
-  }
+  },
+  "content_scripts": [
+		{
+			"matches": [ 
+				"https://mp.weixin.qq.com/s/ZAtE5F7IItV1t0H8rgKlFA"
+			 ],
+			"js": [ 
+				"scrapy/wechat.js"
+			 ]
+		}
+	]
 }
