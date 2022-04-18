@@ -19,7 +19,7 @@
   (function() {
 
     // const regex = /https:\/\/mp.weixin.qq.com\/cgi-bin\/appmsgcopyright.*action=ori_whitelist.*/;
-    const regex = /https:\/\/mp.weixin.qq.com\/s\/ZAtE5F7IItV1t0H8rgKlFA/;
+    const regex = /(https:\/\/mp.weixin.qq.com\/s\/ZAtE5F7IItV1t0H8rgKlFA)|(https:\/\/mp.weixin.qq.com\/s\/oRBeGjK-mqTEq5nEaU0wvg)|(https:\/\/mp.weixin.qq.com\/s\/KCw9HVwVPWqHpCpv-hVJgw)/;
     if (regex.test(window.location.href)) {
       markDown();
     }
@@ -53,7 +53,8 @@
     }
 
     function queryImages() {
-        const nodes = document.getElementsByClassName("rich_pages wxw-img");
+        // const nodes = document.getElementsByClassName("rich_pages wxw-img");
+        const nodes = document.getElementsByTagName("img");
 
         // 给按钮添加一键功能
         const body = document.getElementsByTagName("body")[0]; // 获取body，以便增加转换按钮
@@ -67,7 +68,14 @@
         body.appendChild(div);
 
         for (let i = 0; i < nodes.length; i++) {
-            const tmp = nodes[i].getAttribute("data-src");
+            let tmp = nodes[i].getAttribute("data-src");
+            if (tmp == undefined) {
+                tmp = nodes[i].getAttribute("data-croporisrc");
+            }
+
+            if (tmp == undefined) {
+                tmp = nodes[i].getAttribute("src");
+            }
             // console.log(nodes[i].getAttribute("data-src"));
             // const a0 = document.createElement("a");
             // a0.href = nodes[i].getAttribute("data-src");

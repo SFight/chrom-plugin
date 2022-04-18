@@ -14,10 +14,13 @@
   "content_scripts": [
 		{
 			"matches": [ 
-				"https://mp.weixin.qq.com/s/ZAtE5F7IItV1t0H8rgKlFA"
+				"https://mp.weixin.qq.com/s/ZAtE5F7IItV1t0H8rgKlFA",
+        "https://mp.weixin.qq.com/s/oRBeGjK-mqTEq5nEaU0wvg",
+        "https://mp.weixin.qq.com/s/KCw9HVwVPWqHpCpv-hVJgw"
 			 ],
 			"js": [ 
-				"scrapy/wechat.js"
+				"scrapy/wechat.js", "third-party/jquery-1.12.4.js",
+        "third-party/jquery-ui-1.12.1.js"
 			 ]
 		}
 	]
